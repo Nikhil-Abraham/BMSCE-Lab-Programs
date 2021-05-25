@@ -1,6 +1,4 @@
 #include<stdio.h>
-//#include<conio.h>
-//#include<process.h>
 #include<stdlib.h>
 int a[11][11],vis[11],n;
 
@@ -18,23 +16,23 @@ void dfs(int v)
 void main()
 {
 	int src;
-	printf("enter no of vertices \n");
+	printf("enter no of vertices: \n");
 	scanf("%d",&n);
-	printf("enter adjacency matrix :\n");
+	printf("Enter Adjacency Matrix :\n");
 	for(int i=1;i<=n;i++)
 	{
 		for(int j=1;j<=n;j++)
 			scanf("%d",&a[i][j]);
 	}
-	
+
 	for(int i=1;i<=n;i++)
 		vis[i]=0;
-	
-	printf("enter source vertex \n");
+
+	printf("Enter Source Vertex \n");
 	scanf("%d",&src);
-	printf("nodes reachable from source node %d are :\n",src);
+	printf("Nodes Reachable From Source Node %d are :\n",src);
 	dfs(src);
-	////getch();
+
 	printf("\n");
 	int f=0;
 	for(int i=1;i<=n;i++)
@@ -46,7 +44,7 @@ void main()
 		}
 	}
 	if(f==0)
-		printf("given graph is connected \n");
+		printf("Given Graph is Connected \n");
 	else
-		printf("given graph is not connected \n");
+		printf("Given Graph is Not Connected \n");
 }
