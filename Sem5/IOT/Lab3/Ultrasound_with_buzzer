@@ -1,0 +1,32 @@
+const int trigPin=10,echoPin=9 ,buzzPin = 2;
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(trigPin,OUTPUT);
+  pinMode(echoPin,INPUT);
+  pinMode(buzzPin,OUTPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  float duration,distance;
+  digitalWrite(trigPin,LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin,LOW);
+  duration=pulseIn(echoPin,HIGH);
+  distance=(duration/29.0)/2.0;
+      if (distance <= 10 && distance >= 0) {
+      // Buzz
+      digitalWrite(buzzPin, HIGH);
+    } else {
+      // Don't buzz
+      digitalWrite(buzzPin, LOW);
+    }
+    // Waiting 60 ms won't hurt any one
+
+  Serial.println(distance);
+  delay(1000);
+}
