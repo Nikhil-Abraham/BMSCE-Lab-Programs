@@ -1,0 +1,19 @@
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(11,OUTPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int ldrVal=analogRead(A0);
+  Serial.println(ldrVal);
+  delay(50);
+  if(ldrVal<1000)
+  digitalWrite(11,HIGH);
+  else
+  digitalWrite(11,LOW);
+  delay(1000);
+
+}
